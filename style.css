@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body * {
+    border: 1px solid black;
+}
+
+#main {
+    background-color: #888888;
+    border: 1px solid black;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+#main > div {
+    border: 10px solid #545454;
+}
+
+#main > div:first-of-type, div:last-of-type {
+    width: 150px;
+    height: 150px;
+}
+
+
+/* Board Styles here */
+
+#board {
+    width: 750px;
+    height: 400px;
+    position: relative;
+}
+
+#board-event {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80%;
+}
+
+#button-panel {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 20%;
+}
