@@ -10,13 +10,11 @@ export function start() {
     if (!panel.querySelector('.game-input')) {
         createPlayButtons();
     } else {
-        for (let gameButton of panel.querySelectorAll('.game-input')){
+        for (let gameButton of panel.querySelectorAll('.game-input')) {
             gameButton.style.display = '';
         }
     }
-
-    let startMessage = document.querySelector('.start-message');
-    startMessage.style.display = 'none';
+    hideMessages();
 }
 
 
@@ -58,7 +56,7 @@ function createPlayButtons() {
 function hideMessages() {
     const panel = document.getElementById('board-event');
 
-    for (let elem of panel.childNodes) {
+    for (let elem of panel.children) {
         elem.style.display = 'none';
     }
 
@@ -86,16 +84,19 @@ function whoHasWon(p1, p2) {
 
 function showDraw() {
     const board = document.getElementById('board-event');
+    let drawMessage = document.querySelector('.draw');
 
-    if (board.childNodes.length) {
-        board.innerHTML = '';
+    if (drawMessage) {
+        hideMessages();
+        drawMessage.style.display = '';
+    } else {
+
+        drawMessage = document.createElement('span');
+        drawMessage.className = 'draw';
+        drawMessage.innerHTML = 'Произошла ничья';
+
+        board.append(drawMessage);
     }
-
-    const drawMessage = document.createElement('span');
-    drawMessage.className = 'draw';
-    drawMessage.innerHTML = 'Произошла ничья';
-
-    board.append(drawMessage);
 }
 
 function winner(player) {
@@ -104,12 +105,12 @@ function winner(player) {
     let winnerName = `.winner-${player}`;
 
     let showWinner = document.querySelector(winnerName);
-    
+
     if (!showWinner) {
         let spanWin = document.createElement('span');
         spanWin.className = winnerName.slice(1);
         spanWin.innerHTML = `Победил ${player}`;
-        
+
         hideMessages();
         document.getElementById('board-event').append(spanWin);
     } else {
@@ -118,3 +119,17 @@ function winner(player) {
     }
 }
 
+// restart event
+
+export function restart() {
+
+    hideMessages();
+
+    document.querySelectorAll('.score').forEach(score => {
+        score.innerHTML = 0;
+    })
+
+
+
+
+}
