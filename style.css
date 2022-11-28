@@ -7,6 +7,11 @@
 body * {
     font-family: 'IBM Plex Sans JP';
 }
+#container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
 
 #main {
     background-color: #888888;
@@ -14,11 +19,8 @@ body * {
     width: 100vw;
     height: 100vh;
     display: flex;
-    justify-content: center;
-}
-
-#main > div {
-    border: 10px solid #545454;
+    align-items: center;
+    flex-direction: column;
 }
 
 .score {
@@ -31,6 +33,7 @@ body * {
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 10px solid #545454;
 }
 
 
@@ -44,6 +47,7 @@ body * {
     justify-content:center;
     flex-direction: column;
     align-items: center;
+    border: 10px solid #545454;
 }
 
 #board-event {
@@ -80,12 +84,6 @@ body * {
     align-items: center;
 }
 
-#button-panel > input[type=button]:hover {
-    /* border: 8px solid #545454;
-    font-size: 30px; */
-    
-}
-
 #button-panel > input[type=button] {
     width: calc(100% / 3);
     height: 100%;
@@ -97,6 +95,29 @@ body * {
 
 /* Button styles */
 
-.game-input {
+.game-input:hover {
     background: #676767;
 }
+
+/* history block */
+
+#main-history {
+    width: 750px;
+    display: flex;
+    flex-direction: column;
+}
+#ul {
+    display: none;
+    margin: 0 auto;
+}
+#ul.open {
+    display: block;
+}
+#ul > li {
+    font-size: 24px;
+    list-style-type: none;
+    padding: 10px 0px;
+    text-align:left;
+}
+
+
