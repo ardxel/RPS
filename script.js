@@ -142,15 +142,20 @@ export function restart() {
         score.innerHTML = 0;
     })
     document.querySelector('.start-message').style.display = '';
+
+    document.getElementById('ul').innerHTML = '';
 }
 
 
 // history event
-const historyMain = document.querySelector('#main-history');
-export function history() { }
+export function history() {
+    let ul = document.querySelector('#ul');
+    ul.classList.toggle('open');
+ }
 
 function addLiElement(answer1, answer2, result, date) {
-    const answers = `you: ${answer1}, AI: ${answer2}`;
+    const historyMain = document.querySelector('#main-history');
+    const answers = `you: ${answer1}, PC: ${answer2}`;
     const verdict = (result) => {
         if (result == 'Draw') {
             return 'Draw';
