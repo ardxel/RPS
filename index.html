@@ -1,29 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./style.css">
-    <link <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans+JP:100,200,300,regular,500,600,700" rel="stylesheet" />
+    <link <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans+JP:100,200,300,regular,500,600,700"
+        rel="stylesheet" />
     <title>RPS</title>
 </head>
+
 <body>
     <div id="main">
-        <div id="player-human" class="score" title="счет игрока">0</div>
-        <div id="board">
-            <div id="board-event">
-                <span class="start-message">для начала нажмите кнопку "start"</span>
+        <div id="container">
+            <div id="player-human" class="score" title="счет игрока">0</div>
+            <div id="board">
+                <div id="board-event">
+                    <span class="start-message">для начала нажмите кнопку "start"</span>
+                </div>
+                <div id="button-panel">
+                    <input type="button" value="restart" class="open-button" title="сбросить весь счет"></input>
+                    <input type="button" value="start" class="open-button" title="начать игру"></input>
+                    <input type="button" value="history" class="open-button" title="вывести всю историю внизу"></input>
+                </div>
             </div>
-            <div id="button-panel">
-                <input type="button" value="restart" class="open-button" title="сбросить весь счет"></input>
-                <input type="button" value="start" class="open-button" title="начать игру"></input>
-                <input type="button" value="history" class="open-button" title="вывести всю историю внизу"></input>
-            </div>
+            <div id="player-AI" class="score" title="счет компьютатора">0</div>
         </div>
-        <div id="player-AI" class="score" title="счет компьютатора">0</div>
+        <div id="main-history">
+            <ul id="ul"></ul>
+        </div>
     </div>
     <script type="module" src="./script.js"></script>
     <script type="module" src="./app.js"></script>
 </body>
+
 </html>
