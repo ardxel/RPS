@@ -92,7 +92,7 @@ function whoHasWon(p1, p2) {
         winner('player-AI');
     }
 
-    addLiElement(p1, p2, result, new Date());
+    addTableRow(p1, p2, verdict(result), strDate(new Date()));
 }
 
 function showDraw() {
@@ -137,13 +137,18 @@ function winner(player) {
 export function restart() {
 
     hideMessages();
-
+    // reset scores
     document.querySelectorAll('.score').forEach(score => {
         score.innerHTML = 0;
     })
+    // open start message on display
     document.querySelector('.start-message').style.display = '';
+    // clean table except header(th tags)
+    let tableCol = document.querySelector('#table').querySelectorAll('tr');
 
-    document.getElementById('ul').innerHTML = '';
+    tableCol.forEach(elem => {
+        if (!(elem.className == 'head')) elem.remove();
+    })
 }
 
 
@@ -153,21 +158,22 @@ export function history() {
     ul.classList.toggle('open');
  }
 
-function addLiElement(answer1, answer2, result, date) {
-    const historyMain = document.querySelector('#main-history');
-    const answers = `you: ${answer1}, PC: ${answer2}`;
-    const verdict = (result) => {
-        if (result == 'Draw') {
-            return 'Draw';
-        } else return `winner: ${result}`;
-    };
-    const eventDate = strDate(date);
+function addTableRow(answer1, answer2, result, date) {
 
-    let li = document.createElement('li');
-    li.innerHTML = `${answers}, ${verdict(result)} [${eventDate}]`;
-    historyMain.firstElementChild.prepend(li);
+
+    let tr = document.createElement('tr');
+    for (let arg of arguments) {
+        let td = document.createElement('td');
+        td.innerHTML = arg;
+        tr.append(td);
+    }
+    document.querySelector('#table').append(tr);
 }
 
+function verdict(result) {
+    if (result == 'Draw') return 'Draw';
+    else return `winner: ${result}`;
+};
 
 function strDate(date) {
     let year = String(date.getFullYear()).slice(2);
