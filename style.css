@@ -109,6 +109,7 @@ body * {
 #ul {
     display: none;
     margin: 0 auto;
+    width: 100%;
 }
 #ul.open {
     display: block;
@@ -117,7 +118,30 @@ body * {
     font-size: 24px;
     list-style-type: none;
     padding: 10px 0px;
-    text-align:left;
+    text-align: left;
 }
 
+#table {
+    border-collapse: collapse;
+    margin: 5px 0;
+    width: 100%;
+}
+th,td {
+    border: 5px solid #545454;
+    text-align: center;
+    background: white;
+}
 
+#tr-main th {
+    font-size: 1.3em;
+}
+
+th.player {
+    width: calc(100% / 4.5);
+}
+th.computer {
+    width: calc(100% / 4.5);
+}
+th.result {
+    width: calc(100% / 3.5);
+}
