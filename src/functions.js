@@ -1,5 +1,3 @@
-var historyData = [];
-
 export function start() {
     let panel = document.getElementById('button-panel');
     let openButtons = document.querySelectorAll('.open-button');
@@ -70,7 +68,7 @@ function generator() {
         3: 'paper'
     }
 
-    const randomNum = Math.floor(Math.random() * (3 - 1 + 1) + 1);
+    const randomNum = Math.floor(Math.random() * 4);
 
     return obj[randomNum];
 }
@@ -145,9 +143,8 @@ export function restart() {
     document.querySelector('.start-message').style.display = '';
     // clean table except header(th tags)
     let tableCol = document.querySelector('#table').querySelectorAll('tr');
-
     tableCol.forEach(elem => {
-        if (!(elem.className == 'head')) elem.remove();
+        if (elem.className != 'head') elem.remove();
     })
 }
 
