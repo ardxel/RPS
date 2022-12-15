@@ -1,6 +1,7 @@
-import { start } from './script.js'
-import { restart } from './script.js'
-import { history } from './script.js'
+import { start } from './functions.js'
+import { restart } from './functions.js'
+import { history } from './functions.js'
+import {style} from './style.css'
 
 const startButton = document.querySelector('input[value=start]');
 const restartButton = document.querySelector('input[value=restart]');
